@@ -6,7 +6,7 @@ export default function ContactSection() {
     return (
         <section className="pb-20 relative block bg-gray-100">
             <div className="container max-w-7xl mx-auto px-4 lg:pt-24">
-                <Title heading="Build something">
+                <Title heading="Why do Service with us">
                     Put the potentially record low maximum sea ice extent tihs
                     year down to low ice. According to the National Oceanic and
                     Atmospheric Administration, Ted, Scambos.
@@ -14,8 +14,7 @@ export default function ContactSection() {
 
                 <div className="flex flex-wrap -mt-12 justify-center">
                     <ContactCard icon="stars" title="Excelent Services">
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
+                        We provide excellent quality land to build your dream homes.
                     </ContactCard>
                     <ContactCard icon="insert_chart" title="Grow Your Market">
                         Some quick example text to build on the card title and
