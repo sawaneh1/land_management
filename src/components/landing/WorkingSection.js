@@ -53,18 +53,6 @@ export default function WorkingSection() {
 
           <div className="w-full md:w-4/12 px-4 mx-auto flex justify-center mt-24 lg:mt-0">
             <img src={Teamwork} alt="main " className="h-96 w-96 object-cover rounded-lg shadow-md" />
-           
-            {/* <Card>
-              <CardImage alt="Card Image" src={Teamwork} className="object-contain" />
-              <CardBody>
-                <H6 color="gray">Top Notch Services</H6>
-                <Paragraph color="blueGray">
-                  The Arctic Ocean freezes every winter and much of the sea-ice
-                  then thaws every summer, and that process will continue
-                  whatever happens.
-                </Paragraph>
-              </CardBody>
-            </Card> */}
           </div>
         </div>
       </div>
