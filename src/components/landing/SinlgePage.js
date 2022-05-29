@@ -23,7 +23,7 @@ export default function SinglePage({id,landData}) {
         <div className="flex flex-wrap items-center mt-32">
           <div className="w-full md:w-5/12 px-4 mx-auto">
             <div className="text-blue-gray-800 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-              <Icon name="people" size="3xl" />
+              <Icon name="home" size="3xl" />
             </div>
 
             <H4 color="white">Property Information</H4>
