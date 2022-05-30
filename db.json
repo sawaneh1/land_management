@@ -1,0 +1,39 @@
+{
+  "houses": [
+    {
+      "id": "1",
+      "title": "House One",
+      "description": "This is the House description",
+      "price": "2020",
+      "address_id": "7"
+    },
+    {
+      "id": "2",
+      "title": "House Two",
+      "description": "This is the House description",
+      "price": "8734",
+      "address_id": "9"
+    },
+    {
+      "id": "3",
+      "title": "House Three",
+      "description": "This is the House description",
+      "price": "8734",
+      "address_id": "3"
+    },
+    {
+      "title": "House Four",
+      "description": "This is the description for House 4",
+      "price": "2020",
+      "id": "DdCICG7",
+      "address_id": "4"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "John Smith",
+      "email": "john@example.com"
+    }
+  ]
+}
