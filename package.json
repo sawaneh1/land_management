@@ -24,6 +24,7 @@
   },
   "scripts": {
     "server": "json-server --watch db.json --port 5001 --middlewares ./range.js",
+    "dev": "concurrently \"npm run server\" \"npm run start\"", 
     "build:tailwind": "postcss ./src/assets/styles/index.css -o ./src/assets/styles/tailwind.css --env production",
     "watch:tailwind": "postcss ./src/assets/styles/index.css -o ./src/assets/styles/tailwind.css -w",
     "start:react": "react-scripts start",
