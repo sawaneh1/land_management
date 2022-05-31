@@ -15,6 +15,7 @@ import Button from "@material-tailwind/react/Button";
 
 export default function DefaultNavbar() {
   const [openNavbar, setOpenNavbar] = useState(false);
+  const [login, setLogin] = useState(true);
 
   return (
     <Navbar color="transparent" navbar>
@@ -32,83 +33,41 @@ export default function DefaultNavbar() {
         <NavbarCollapse open={openNavbar}>
           <Nav>
             <div className="flex flex-col z-50 lg:flex-row lg:items-center">
-              <NavLink
-                to="/profile"
-                rel="noreferrer"
-                ripple="dark"
-               
+              <NavLink  
+              >
+                <Icon name="home" size="2xl" />
+                
+                <Link to="/lands">
+                    Lands
+                  </Link>
+              </NavLink>
+              {login ? <NavLink  
+              >
+                <Icon name="login" size="2xl" />
+                
+                <Link to="/Login">
+                    Login
+                  </Link>
+              </NavLink>:<NavLink  
               >
                 <Icon name="description" size="2xl" />
-                &nbsp;Docs
-              </NavLink>
-             
-              <NavLink
-                href="https://material-tailwind.com/components?ref=mtk"
-                target="_blank"
-                rel="noreferrer"
-                ripple="light"
-              >
-                <Icon name="apps" size="2xl" />
-                &nbsp;Components
-              </NavLink>
-              <div className="text-white">
-                <Dropdown
-                  color="transparent"
-                  size="sm"
-                  buttonType="link"
-                  buttonText={
-                    <div className="py-2.5 font-medium flex items-center">
-                      <Icon name="view_carousel" size="2xl" color="white" />
-                      <span className="ml-2">Templates</span>
-                    </div>
-                  }
-                  ripple="light"
-                >
-                  <Link to="/">
-                    <DropdownItem color="lightBlue">Landing</DropdownItem>
+                
+                <Link to="/register">
+                    Register
                   </Link>
-                  <Link to="/profile">
-                    <DropdownItem color="lightBlue">Profile</DropdownItem>
-                  </Link>
-                  <Link to="/login">
-                    <DropdownItem color="lightBlue">Login</DropdownItem>
-                  </Link>
-                  <Link to="/register">
-                    <DropdownItem color="lightBlue">Register</DropdownItem>
-                  </Link>
-                </Dropdown>
-              </div>
-              <NavLink
-                href="https://github.com/creativetimofficial/material-tailwind?ref=mtk"
-                target="_blank"
-                rel="noreferrer"
-                ripple="light"
+              </NavLink> }
+              
+              
+              <NavLink  
               >
-                <Icon family="font-awesome" name="fab fa-github" size="xl" />
-                &nbsp;Github
+                <Icon name="person" size="2xl" />
+                
+                <Link to="/profile">
+                    Profile
+                  </Link>
               </NavLink>
-              <NavLink
-                href="https://github.com/creativetimofficial/material-tailwind/issues?ref=mtk"
-                target="_blank"
-                rel="noreferrer"
-                ripple="light"
-              >
-                Issues
-              </NavLink>
-              <Link
-                // href="https://www.creative-tim.com/product/material-tailwind-kit-react"
-                // target="_blank"
-                to="/profile"
-                rel="noreferrer"
-              >
-                <Button
-                  color="transparent"
-                  className="bg-white text-black ml-4"
-                  ripple="dark"
-                >
-                  Free Download
-                </Button>
-              </Link>
+
+                          
             </div>
           </Nav>
         </NavbarCollapse>
