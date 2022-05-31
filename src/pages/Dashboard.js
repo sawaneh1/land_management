@@ -3,6 +3,11 @@ import { Admin, Resource } from 'react-admin'
 import simpleRestProvider from 'ra-data-simple-rest'
 
 import HouseList from 'components/dashboard/HouseList'
+import HouseCreate from 'components/dashboard/HouseCreate'
+import HouseEdit from 'components/dashboard/HouseEdit'
+import PaymentList from 'components/dashboard/PaymentList'
+import PaymentEdit from 'components/dashboard/PaymentEdit'
+import Contacts from 'components/dashboard/Contacts'
 // import PostList from './components/PostList'
 // import PostCreate from './components/PostCreate'
 // import PostEdit from './components/PostEdit'
@@ -16,15 +21,11 @@ const Dashboard = () => {
       <Resource
         name='houses'
         list={HouseList}
-        // create={PostCreate}
-        // edit={PostEdit}
+        create={HouseCreate}
+        edit={HouseEdit}
       />
-      {/* <Resource
-        name='users'
-        list={UserList}
-        create={UserCreate}
-        edit={UserEdit}
-      /> */}
+      <Resource name='payments' list={PaymentList} edit={PaymentEdit} />
+      <Resource name='Contacts' list={Contacts} />
     </Admin>
   )
 }

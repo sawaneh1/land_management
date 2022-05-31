@@ -6,7 +6,6 @@
 // }
 
 module.exports = (req, res, next) => {
-  // header('Content-type: application/json')
   res.header('Content-Range', 'posts 0-24/319')
   next()
 }

@@ -16,8 +16,8 @@ const HouseList = (props) => {
         <TextField source='title' />
         <TextField source='description' />
         <TextField source='price' />
-        {/* <EditButton basePath='/houses' />
-        <DeleteButton basePath='/houses' /> */}
+        <EditButton basePath='/houses' />
+        <DeleteButton basePath='/houses' />
       </Datagrid>
     </List>
   )

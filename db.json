@@ -11,7 +11,7 @@
       "id": "2",
       "title": "House Two",
       "description": "This is the House description",
-      "price": "8734",
+      "price": 8736,
       "address_id": "9"
     },
     {
@@ -29,11 +29,76 @@
       "address_id": "4"
     }
   ],
-  "users": [
+  "payments": [
     {
       "id": "1",
-      "name": "John Smith",
-      "email": "john@example.com"
+      "fname": "John",
+      "lname": "Smith",
+      "email": "john@example.com",
+      "house_id": "3",
+      "date": "2020/8/13"
+    },
+    {
+      "id": "4",
+      "fname": "John",
+      "lname": "peters",
+      "email": "peters@example.com",
+      "house_id": "5",
+      "date": "2021/9/17"
+    },
+    {
+      "id": "1",
+      "fname": "John",
+      "lname": "Smith",
+      "email": "john@example.com",
+      "house_id": "3",
+      "date": "2020/8/13"
+    },
+    {
+      "id": "1",
+      "fname": "John",
+      "lname": "Smith",
+      "email": "john@example.com",
+      "house_id": "3",
+      "date": "2020/8/13"
+    },
+    {
+      "id": "1",
+      "fname": "John",
+      "lname": "Smith",
+      "email": "john@example.com",
+      "house_id": "3",
+      "date": "2020/8/13"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "1",
+      "fname": "John",
+      "lname": "Smith",
+      "email": "john@example.com",
+      "message": "this is contact message"
+    },
+    {
+      "id": "1",
+      "fname": "John",
+      "lname": "Smith",
+      "email": "john@example.com",
+      "message": "this is contact message"
+    },
+    {
+      "id": "1",
+      "fname": "John",
+      "lname": "Smith",
+      "email": "john@example.com",
+      "message": "this is contact message"
+    },
+    {
+      "id": "1",
+      "fname": "John",
+      "lname": "Smith",
+      "email": "john@example.com",
+      "message": "this is contact message"
     }
   ]
 }

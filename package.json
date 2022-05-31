@@ -1,7 +1,7 @@
 {
   "name": "material-tailwind-kit-react",
-  "proxy": "http://localhost:5001",
   "version": "1.1.0",
+  "proxy": "http://localhost:5001",
   "private": true,
   "homepage": "https://demos.creative-tim.com/material-tailwind-kit-react/#/",
   "dependencies": {
