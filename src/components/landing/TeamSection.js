@@ -14,16 +14,16 @@ export default function TeamSection() {
           project a successful.
         </Title>
         <div className="flex flex-wrap">
-          <TeamCard img={Image1} name="Ryan Tompson" position="Web Developer" />      
+          <TeamCard img={Image1} name="Ahmed Eyan Jeng" position="Web Developer" />      
           <TeamCard
-            img={Image2}
-            name="Romina Hadid"
-            position="Marketing Specialist"
+            img={Image1}
+            name="Sulayman Sawanneh"
+            position="Backend Developer"
           />
-          <TeamCard img={Image3} name="Alexa Smith" position="UI/UX Designer" />
+          <TeamCard img={Image1} name="Fabala Dibassey" position="UI/UX Designer" />
           <TeamCard
-            img={Image4}
-            name="Jenna Kardi"
+            img={Image1}
+            name="Sarjo Jaiteh"
             position="Founder and CEO"
           />
         </div>
