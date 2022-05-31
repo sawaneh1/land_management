@@ -28,9 +28,9 @@ const colors = {
 
 export default function LandList({ color, icon, title, children, img }) {
   return (
-    <div className="w-full  px-4 sm:flex  justify-center text-center">
+    <div className="w-full  px-4 sm:flex  justify-center text-center  min-h-[450px]">
       <Card>
-        <CardBody>
+        <CardBody className="mt-2">
           <img src={img} className="w-full" />
           <H6 color="gray">{title}</H6>
           <Paragraph color="blueGray">{children}</Paragraph>
