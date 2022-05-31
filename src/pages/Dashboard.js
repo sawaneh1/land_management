@@ -8,12 +8,6 @@ import HouseEdit from 'components/dashboard/HouseEdit'
 import PaymentList from 'components/dashboard/PaymentList'
 import PaymentEdit from 'components/dashboard/PaymentEdit'
 import Contacts from 'components/dashboard/Contacts'
-// import PostList from './components/PostList'
-// import PostCreate from './components/PostCreate'
-// import PostEdit from './components/PostEdit'
-// import UserList from './components/UserList'
-// import UserCreate from './components/UserCreate'
-// import UserEdit from './components/UserEdit'
 
 const Dashboard = () => {
   return (

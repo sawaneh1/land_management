@@ -6,8 +6,8 @@ const PaymentEdit = (props) => {
     <Edit title='Edit User' {...props}>
       <SimpleForm>
         <TextInput disabled source='house_id' />
-        <TextInput label='First name' source='fname' />
-        <TextInput label='Last name' source='lname' />
+        <TextInput label='first name' source='fname' />
+        <TextInput label='fast name' source='lname' />
         <TextInput source='email' />
         <NumberInput source='price' />
       </SimpleForm>

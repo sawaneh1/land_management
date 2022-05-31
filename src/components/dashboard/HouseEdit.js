@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  Edit,
-  SimpleForm,
-  TextInput,
-  DateInput,
-  NumberField,
-  NumberInput,
-} from 'react-admin'
+import { Edit, SimpleForm, TextInput, NumberInput } from 'react-admin'
 
 const HouseEdit = (props) => {
   return (

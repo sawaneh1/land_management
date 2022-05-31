@@ -48,25 +48,25 @@
     },
     {
       "id": "1",
-      "fname": "John",
-      "lname": "Smith",
-      "email": "john@example.com",
+      "fname": "fabala",
+      "lname": "dibbasey",
+      "email": "dibbasey@example.com",
       "house_id": "3",
-      "date": "2020/8/13"
+      "date": "2019/2/13"
     },
     {
       "id": "1",
-      "fname": "John",
-      "lname": "Smith",
-      "email": "john@example.com",
+      "fname": "lamin",
+      "lname": "jallow",
+      "email": "lamin@example.com",
       "house_id": "3",
-      "date": "2020/8/13"
+      "date": "2020/12/28"
     },
     {
       "id": "1",
-      "fname": "John",
-      "lname": "Smith",
-      "email": "john@example.com",
+      "fname": "abdoulie",
+      "lname": "ceesay",
+      "email": "abdoulie@example.com",
       "house_id": "3",
       "date": "2020/8/13"
     }
@@ -77,28 +77,32 @@
       "fname": "John",
       "lname": "Smith",
       "email": "john@example.com",
-      "message": "this is contact message"
+      "message": "this is contact message",
+      "date": "2019/2/13"
     },
     {
       "id": "1",
-      "fname": "John",
-      "lname": "Smith",
-      "email": "john@example.com",
-      "message": "this is contact message"
+      "fname": "muhammed",
+      "lname": "badjie",
+      "email": "muhammed@example.com",
+      "message": "this is contact message",
+      "date": "2019/2/13"
     },
     {
       "id": "1",
-      "fname": "John",
-      "lname": "Smith",
-      "email": "john@example.com",
-      "message": "this is contact message"
+      "fname": "fatou",
+      "lname": "drammeh",
+      "email": "fatou@example.com",
+      "message": "this is contact message",
+      "date": "2019/2/13"
     },
     {
       "id": "1",
-      "fname": "John",
-      "lname": "Smith",
-      "email": "john@example.com",
-      "message": "this is contact message"
+      "fname": "khalifa",
+      "lname": "jabbie",
+      "email": "jabbie@example.com",
+      "message": "this is contact message",
+      "date": "2019/2/13"
     }
   ]
 }

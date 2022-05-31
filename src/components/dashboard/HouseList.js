@@ -3,7 +3,6 @@ import {
   List,
   Datagrid,
   TextField,
-  DateField,
   EditButton,
   DeleteButton,
 } from 'react-admin'

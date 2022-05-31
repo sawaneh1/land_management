@@ -5,7 +5,6 @@ import {
   TextField,
   EmailField,
   EditButton,
-  DeleteButton,
   DateField,
 } from 'react-admin'
 
