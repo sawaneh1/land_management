@@ -13,11 +13,16 @@ import Page from "components/login/Page";
 import Container from "components/login/Container";
 
 export default function Login() {
-  const [password, setPassword] = useState();
-  const [email, setEmail] = useState();
-  const handleSubmit = () => {
-    console.log("email", email);
-    alert(email);
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [error,setError] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const loginDetails = {email, password};
+    if(email === ""|| password === ""){
+      setError("Please enter complete")
+      return}
+
   };
   return (
     <Page>
@@ -38,6 +43,7 @@ export default function Login() {
                 color="lightBlue"
                 placeholder="Email Address"
                 iconName="email"
+                value={email}
               />
             </div>
             <div className="mb-8 px-4">
@@ -47,6 +53,7 @@ export default function Login() {
                 color="lightBlue"
                 placeholder="Password"
                 iconName="lock"
+                value={password}
               />
             </div>
             <div className="mb-4 px-4">
@@ -64,11 +71,17 @@ export default function Login() {
               >
                 Get Started
               </Button>
+              
             </div>
+            {error && (
+                <div onClick={() => setError(null)} class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                <span class="font-medium">Failure alert!</span> Please provide your details
+              </div>
+              )}
           </CardFooter>
         </Card>
       </Container>
-      <SimpleFooter />
+
     </Page>
   );
 }
