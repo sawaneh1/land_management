@@ -21,35 +21,21 @@ import Contact from "components/dashboard/Contact";
 // import Dashboard from 'pages/Dashboard'
 
 function App() {
-  const userData = window.localStorage.getItem("user");
-  const user = JSON.parse(userData);
-  // console.log("user", user.token);
   return (
     <Switch>
-      {user ? (
-        <>
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/dashboard/add_houses" component={AddProducts} />
-          <Route exact path="/dashboard/houses" component={Houses} />
-          <Route exact path="/dashboard/payments" component={Payments} />
-          <Route exact path="/dashboard/contacts" component={Contact} />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/lands" component={Land} />
-          <Route exact path="/land/:id" component={SingleLand} />
-        </>
-      ) : (
-        <>
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/" component={Landing} />
-
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/lands" component={Land} />
-          <Route exact path="/land/:id" component={SingleLand} />
-        </>
-      )}
-      <Redirect from="*" to="/" />
+      {/* <></> */}
+      <Route exact path="/" component={Landing} />
+      <Route exact path="/profile" component={Profile} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/lands" component={Land} />
+      <Route exact path="/land/:id" component={SingleLand} />
+      <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/dashboard/add_houses" component={AddProducts} />
+      <Route exact path="/dashboard/houses" component={Houses} />
+      <Route exact path="/dashboard/payments" component={Payments} />
+      <Route exact path="/dashboard/contacts" component={Contact} />
+      {/* <Redirect from="*" to="/" /> */}
     </Switch>
   );
 }

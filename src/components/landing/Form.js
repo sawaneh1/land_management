@@ -1,25 +1,28 @@
-import { useEffect, useState } from "react";
 import H3 from "@material-tailwind/react/Heading3";
 import Paragraph from "@material-tailwind/react/Paragraph";
 import Input from "@material-tailwind/react/Input";
 import Textarea from "@material-tailwind/react/Textarea";
 import Button from "@material-tailwind/react/Button";
+import { useState } from "react";
 import axios from "axios";
 
 export default function Form() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const handleLogin = async (e) => {
-    console.log("ghgg", e);
-    e.preventDefault();
-    const url = "http://localhost:5000/login";
-    const { data } = await axios.post(url, {
-      email,
-      password,
-    });
+  const [message, setMessage] = useState("");
+  const [fname, setFName] = useState("");
+  const [lname, setLName] = useState("");
+  const [email, setEmail] = useState("");
 
+  const handleContact = async () => {
+    const url = "http://localhost:5000/contact";
+
+    const { data } = await axios.post(url, {
+      fname,
+      lname,
+      message,
+      email,
+    });
     console.log("data", data);
-    console.log("data", data);
+    alert("you message has successfully been sent");
   };
   return (
     <div className="flex flex-wrap justify-center mt-24">
@@ -32,28 +35,42 @@ export default function Form() {
                 Complete this form and we will get back to you in 24 hours.
               </Paragraph>
             </div>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <div className="flex gap-8 mt-16 mb-12">
-                <input
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="email"
-                  //   color="lightBlue"
-                  className="bg-blue-600"
+                <Input
+                  type="text"
+                  placeholder="First Name"
+                  onChange={(e) => setFName(e.target.value)}
+                  color="lightBlue"
                 />
-                <input
+                <Input
+                  type="text"
+                  onChange={(e) => setLName(e.target.value)}
+                  placeholder="Last name"
+                  color="lightBlue"
+                />
+              </div>
+              <div className="flex gap-8 mt-16 mb-12">
+                <Input
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email Addressddddd"
-                  //   color="lightBlue"
+                  placeholder="Email Address"
+                  color="lightBlue"
                 />
               </div>
 
-              {/* <Textarea color="lightBlue" placeholder="Message" /> */}
+              <Textarea
+                onChange={(e) => setMessage(e.target.value)}
+                color="lightBlue"
+                placeholder="Message"
+              />
 
-              <div className="flex justify-center mt-10">
-                <Button color="lightBlue" ripple="light" onClick={handleLogin}>
-                  Login
+              <div
+                className="flex justify-center mt-10"
+                onClick={handleContact}
+              >
+                <Button color="lightBlue" ripple="light">
+                  Send Message
                 </Button>
               </div>
             </form>

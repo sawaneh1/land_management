@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Aside from "./Aside";
@@ -7,12 +8,16 @@ import Nav from "./Nav";
 const Header = ({ children }) => {
   const userData = window.localStorage.getItem("user");
   const user = JSON.parse(userData);
-  console.log("user", user.data.fname);
+  // const [houses, setHouses] = useState([]);
+  // const [amounts, setAmount] = useState([]);
+
+  // console.log("user", user.data.fname);
   const history = useHistory();
+
   useEffect(() => {
     if (user == null) {
       console.log("test");
-      history.push("/");
+      history.push("/login");
     }
   }, [history.pathName]);
 
@@ -21,19 +26,20 @@ const Header = ({ children }) => {
     history.push("/");
   };
   return (
-    <div class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
+    <div class="bg-dark font-sans leading-normal tracking-normal mt-12">
       <header>
         <nav
           aria-label="menu nav"
-          class="bg-gray-800 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0"
+          class="bg-dark pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0"
         >
           <div class="flex flex-wrap items-center">
             <div class="flex flex-shrink md:w-1/3 justify-center  md:justify-start text-white">
-              <a href="#" aria-label="Home">
+              <Link to={"/dashboard"} aria-label="Home">
                 <span class="text-xl pl-2">
-                  <i class="em em-grinning"></i>
+                  <i class="em em-grinning mb-4">Dashboard</i>
                 </span>
-              </a>
+                <hr />
+              </Link>
             </div>
 
             <div class="flex flex-1 md:w-1/3 justify-center md:justify-start text-white px-2">
@@ -43,10 +49,10 @@ const Header = ({ children }) => {
                   type="search"
                   id="search"
                   placeholder="Search"
-                  class="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400 rounded py-3 px-2 pl-10 appearance-none leading-normal"
+                  className="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400 rounded py-3 px-2 pl-10 appearance-none leading-normal"
                 />
                 <div
-                  class="absolute search-icon"
+                  class="absolute search-icon mx-96"
                   style={{ top: 1 + "rem", left: 0.8 + "rem" }}
                 >
                   <svg
@@ -92,7 +98,7 @@ const Header = ({ children }) => {
                       <span class="pr-2">
                         <i class="em em-robot_face"></i>
                       </span>{" "}
-                      Hi, {user.data.fname}{" "}
+                      Hi, {user?.data?.fname}{" "}
                       <svg
                         class="h-3 fill-current inline"
                         xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +149,7 @@ const Header = ({ children }) => {
       <main>
         <div class="flex flex-col md:flex-row">
           <nav aria-label="alternative nav">
-            <div class="bg-gray-800 shadow-xl h-20 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48 content-center">
+            <div class="bg-dark shadow-xl h-20 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48 content-center">
               <div class="md:mt-12  md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
                 <ul class="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left">
                   <li class="mr-3 flex-1">

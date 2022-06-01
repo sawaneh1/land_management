@@ -58,7 +58,7 @@ export default function SinglePage({ id }) {
             </>
 
             {/* })} */}
-            <BuyModal />
+            <BuyModal houseId={house._id} amount={house.price} />
           </div>
 
           <div className="w-full md:w-4/12 px-4 mx-auto flex justify-center mt-24 lg:mt-0">

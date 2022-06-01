@@ -23,6 +23,7 @@ const Contact = () => {
     console.log("data", data);
     setContacts(data);
   };
+
   useEffect(() => {
     fetchContacts();
   }, []);
