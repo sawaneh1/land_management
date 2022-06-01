@@ -8,6 +8,7 @@ import LeadText from "@material-tailwind/react/LeadText";
 import Paragraph from "@material-tailwind/react/Paragraph";
 import StatusCard from "components/landing/StatusCard";
 import Teamwork from "assets/img/manson.jpeg";
+import { Link } from "react-router-dom";
 
 export default function WorkingSection() {
   return (
@@ -43,12 +44,11 @@ export default function WorkingSection() {
               We provide you a 10 year guarantee of our houses, and with that also also get to live in a 
               comfortable environment.
             </LeadText>
-            <a
-              href="#pablo"
+            <Link to="/lands"
               className="font-medium text-light-blue-500 mt-2 inline-block"
             >
-              Read More
-            </a>
+              Show Houses
+            </Link>
           </div>
 
           <div className="w-full md:w-4/12 px-4 mx-auto flex justify-center mt-24 lg:mt-0">

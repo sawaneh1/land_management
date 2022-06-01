@@ -2,6 +2,17 @@ import {useState} from 'react'
 
 const BuyModal = () => {
   const [showModal,setShowModal] = useState(false);
+  const [firstName,setFirstName] = useState(" ");
+  const [lastName,setLastName] = useState(" ");
+  const [email,setEmail] = useState(" ");
+  const [phoneNumber,setPhoneNumber] = useState(" ");
+  const [address,setAddress] = useState(" ");
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    const details ={firstName,lastName,email,phoneNumber,address};
+    console.log(details);
+  }
   return (
     <div>
       
@@ -17,13 +28,13 @@ const BuyModal = () => {
       <label class="block text-gray-700 text-sm font-bold mb-2" for="firstName">
         First Name
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="firstName" type="text" placeholder="firstName" />
+      <input value={firstName} onChange={(e)=>setFirstName(e.target.value)} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="firstName" type="text" placeholder="firstName" />
     </div>
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="lastName">
         Last Name
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="lastName" type="text" placeholder="lastName" />
+      <input value={lastName} onChange={(e)=>setLastName(e.target.value)} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="lastName" type="text" placeholder="lastName" />
     </div>
     </div>
     
@@ -31,25 +42,25 @@ const BuyModal = () => {
       <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
         Email
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="email" placeholder="Email address" required/>
+      <input value={email} onChange={(e)=>setEmail(e.target.value)} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="email" placeholder="Email address" required/>
     </div>
     <div className="flex flex-col md:flex-row gap-4">
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
         Phone Number
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="phoneNumber" type="tel" placeholder="phone Number" />
+      <input value={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="phoneNumber" type="tel" placeholder="phone Number" />
       
     </div>
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
         Address
       </label>
-      <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="address" type="text" placeholder="address" />
+      <input value={address} onChange={(e)=>setAddress(e.target.value)} class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="address" type="text" placeholder="address" />
     </div>
     </div>
     <div class="flex items-center justify-between">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+      <button onClick={handleSubmit} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
        Process
       </button>
       <p class="cursor-pointer inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" onClick={()=>setShowModal(false)}>
