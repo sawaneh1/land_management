@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Aside from "./Aside";
 import Nav from "./Nav";
 
 const Header = ({ children }) => {
+  const userData = window.localStorage.getItem("user");
+  const user = JSON.parse(userData);
+  console.log("user", user.data.fname);
+  const history = useHistory();
+  useEffect(() => {
+    if (user == null) {
+      console.log("test");
+      history.push("/");
+    }
+  }, [history.pathName]);
+
+  const handleLogout = () => {
+    window.localStorage.clear();
+    history.push("/");
+  };
   return (
     <div class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
       <header>
@@ -55,12 +71,15 @@ const Header = ({ children }) => {
                   </a>
                 </li>
                 <li class="flex-1 md:flex-none md:mr-3">
-                  <a
+                  <button
+                    type="button"
+                    // to={"/"}
+                    onClick={handleLogout}
                     class="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
                     href="#"
                   >
-                    link
-                  </a>
+                    Logout
+                  </button>
                 </li>
                 <li class="flex-1 md:flex-none md:mr-3">
                   <div class="relative inline-block">
@@ -73,7 +92,7 @@ const Header = ({ children }) => {
                       <span class="pr-2">
                         <i class="em em-robot_face"></i>
                       </span>{" "}
-                      Hi, User{" "}
+                      Hi, {user.data.fname}{" "}
                       <svg
                         class="h-3 fill-current inline"
                         xmlns="http://www.w3.org/2000/svg"

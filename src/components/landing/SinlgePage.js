@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Card from "@material-tailwind/react/Card";
 import CardImage from "@material-tailwind/react/CardImage";
 import CardBody from "@material-tailwind/react/CardBody";
@@ -10,12 +11,27 @@ import StatusCard from "components/landing/StatusCard";
 import Teamwork from "assets/img/teamwork.jpeg";
 import DefaultNavbar from "components/DefaultNavbar";
 import BuyModal from "./BuyModal";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
+export default function SinglePage({ id }) {
+  const route = useParams();
+  const [house, setHouse] = useState({});
+  console.log("route...", route.id);
+  // const id = route.id
+  const path = "http://localhost:5000/";
 
-export default function SinglePage({id,landData}) {
-  
-  const value =id;
-  console.log("value is " + value); 
+  const fetchHouse = async () => {
+    const url = `http://localhost:5000/house/${id}`;
+    const { data } = await axios.get(url);
+    console.log("datttt", data.data.title);
+    setHouse(data.data);
+  };
+
+  useEffect(() => {
+    fetchHouse();
+  }, []);
+
   return (
     <section className="pb-20 bg-gray-800 ">
       <DefaultNavbar />
@@ -27,45 +43,28 @@ export default function SinglePage({id,landData}) {
             </div>
 
             <H4 color="white">Property Information</H4>
-            {landData.map((land)=>{
-              return(
-               <>
-            {(land.id === (id===1||id===2||id&3||id===4||id&5||id&6) )?
+            {/* {landData.map((land) => { */}
+
             <>
-            <LeadText>
-            <H6 color="white">{land.title}</H6>
-            <p className="text-gray-400">Location {land.location}</p>
-            <p className="text-gray-400">Price: {land.price}</p>
-            <p className="text-gray-400">Dimension : {land.dimension}</p>
-            </LeadText>
-            <LeadText color="white">
-            {land.description}
-            </LeadText>
-            </>:null}
+              <LeadText>
+                <H6 color="white">{house.title}</H6>
+                <p className="text-gray-400">
+                  Location {house.street_address} | {house.city}
+                </p>
+                <p className="text-gray-400">Country : {house.country}</p>
+                <p className="text-gray-400">Price: {house.price}</p>
+              </LeadText>
+              <LeadText color="white">{house.description}</LeadText>
             </>
-               )
-              })}
+
+            {/* })} */}
             <BuyModal />
           </div>
 
           <div className="w-full md:w-4/12 px-4 mx-auto flex justify-center mt-24 lg:mt-0">
-            {landData.map((land)=>{
-             
-              return(
-               <>
-            {(land.id === (id===1||id===2||id&3||id===4||id&5||id&6) )?
-
-               <>
-                <Card>
-              <CardImage alt="Card Image" src={land.img} />
-                    
+            <Card>
+              <CardImage alt="Card Image" src={`${path}${house.imagePath}`} />
             </Card>
-               </>:null}
-              
-               </>
-              )
-            })}
-            
           </div>
         </div>
       </div>

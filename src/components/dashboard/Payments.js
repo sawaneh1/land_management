@@ -45,7 +45,7 @@ const Payments = () => {
 
   return (
     <Header>
-      <div className="mt-20 p-4">
+      <div className="mt-20 p-4 w-full mx-auto px-10 shadow">
         <div>
           <h2 class="text-2xl  text-gray-200 font-semibold leading-tight">
             Payment
@@ -86,7 +86,7 @@ const Payments = () => {
                             </div> */}
                           <div class="ml-3 flex flex-row-reverse">
                             <p class="text-gray-900 whitespace-no-wrap ml-2">
-                              {index} -{" "}
+                              {index + 1} -{" "}
                               <span className="ml-2"> {payment.house_id}</span>
                             </p>
                             {/* <p class="text-gray-600 whitespace-no-wrap">

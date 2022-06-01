@@ -11,13 +11,25 @@ import DefaultNavbar from "components/DefaultNavbar";
 import SimpleFooter from "components/SimpleFooter";
 import Page from "components/login/Page";
 import Container from "components/login/Container";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
-  const [password, setPassword] = useState();
+  const history = useHistory();
   const [email, setEmail] = useState();
-  const handleSubmit = () => {
-    console.log("email", email);
-    alert(email);
+  const [password, setPassword] = useState();
+  const handleLogin = async (e) => {
+    console.log("ghgg", e);
+    e.preventDefault();
+    const url = "http://localhost:5000/login";
+    const { data } = await axios.post(url, {
+      email,
+      password,
+    });
+    window.localStorage.setItem("user", JSON.stringify(data));
+    history.push("/dashboard");
+    console.log("data", data);
+    console.log("data", data);
   };
   return (
     <Page>
@@ -60,7 +72,7 @@ export default function Login() {
                 buttonType="link"
                 size="lg"
                 ripple="dark"
-                onClick={handleSubmit}
+                onClick={handleLogin}
               >
                 Get Started
               </Button>
