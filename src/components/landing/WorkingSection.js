@@ -16,16 +16,19 @@ export default function WorkingSection() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="flex flex-wrap relative z-50">
           <StatusCard color="red" icon="stars" title="Awarded Agency">
-            Our business has been awarded by Gambia chamber of commerce and industry(GCCI) as the most established
-            center of business in The Gambia.
+            Our business has been awarded by Gambia chamber of commerce and
+            industry(GCCI) as the most established center of business in The
+            Gambia.
           </StatusCard>
           <StatusCard color="lightBlue" icon="autorenew" title="Make your own">
-            Our team of dedicated workers helps to ensure that all paper works to get your property at hand
-            are accomplished in a short period of time.
+            Our team of dedicated workers helps to ensure that all paper works
+            to get your property at hand are accomplished in a short period of
+            time.
           </StatusCard>
           <StatusCard color="teal" icon="fingerprint" title="Verified Company">
-           Being a well established company over the past decades we help to ensure that you live in 
-           a well furnished house with the help of our top notch architects.
+            Being a well established company over the past decades we help to
+            ensure that you live in a well furnished house with the help of our
+            top notch architects.
           </StatusCard>
         </div>
 
@@ -36,23 +39,28 @@ export default function WorkingSection() {
             </div>
             <H4 color="gray">Working with us is a pleasure</H4>
             <LeadText color="blueGray">
-              With the help of our well established agencies, we provide you with
-              an experienced of a life-time in exploring our lands and houses.
-          
+              With the help of our well established agencies, we provide you
+              with an experienced of a life-time in exploring our lands and
+              houses.
             </LeadText>
             <LeadText color="blueGray">
-              We provide you a 10 year guarantee of our houses, and with that also also get to live in a 
-              comfortable environment.
+              We provide you a 10 year guarantee of our houses, and with that
+              also also get to live in a comfortable environment.
             </LeadText>
-            <Link to="/lands"
+            <Link
+              to={"/lands"}
               className="font-medium text-light-blue-500 mt-2 inline-block"
             >
-              Show Houses
+              See Our Houses
             </Link>
           </div>
 
           <div className="w-full md:w-4/12 px-4 mx-auto flex justify-center mt-24 lg:mt-0">
-            <img src={Teamwork} alt="main " className="h-96 w-96 object-cover rounded-lg shadow-md" />
+            <img
+              src={Teamwork}
+              alt="main "
+              className="h-96 w-96 object-cover rounded-lg shadow-md"
+            />
           </div>
         </div>
       </div>

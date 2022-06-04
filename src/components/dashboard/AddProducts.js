@@ -1,133 +1,142 @@
-import React from "react";
+import React, { useState } from "react";
+import Header from "./Header";
+import img from "../../assets/img/manson.jpeg";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const AddProducts = () => {
+  const history = useHistory();
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState();
+  const [imagePath, setImagePath] = useState();
+  const [price, setPrice] = useState();
+
+  const [street_address, setStress_address] = useState();
+  const [city, setCity] = useState();
+  const [country, setCountry] = useState();
+  const handleFile = (e) => {
+    setImagePath(e.target.files[0]);
+  };
+  const addHouses = (e) => {
+    e.preventDefault();
+
+    const url = "http://localhost:5000/create_house";
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("imagePath", imagePath);
+    formData.append("country", country);
+    formData.append("city", city);
+    formData.append("street_address", street_address);
+
+    axios.post(url, formData).then((res) => {
+      console.log("res", res);
+      history.push("/dashboard");
+    });
+  };
+
   return (
-    <div>
-      <form>
-        <div className="relative z-0 w-full mb-6 group">
-          <input
-            type="email"
-            name="floating_email"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required=""
-          />
-          <label
-            for="floating_email"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Email address
-          </label>
-        </div>
-        <div className="relative z-0 w-full mb-6 group">
-          <input
-            type="password"
-            name="floating_password"
-            id="floating_password"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required=""
-          />
-          <label
-            for="floating_password"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Password
-          </label>
-        </div>
-        <div className="relative z-0 w-full mb-6 group">
-          <input
-            type="password"
-            name="repeat_password"
-            id="floating_repeat_password"
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required=""
-          />
-          <label
-            for="floating_repeat_password"
-            className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Confirm password
-          </label>
-        </div>
-        <div className="grid xl:grid-cols-2 xl:gap-6">
-          <div className="relative z-0 w-full mb-6 group">
-            <input
-              type="text"
-              name="floating_first_name"
-              id="floating_first_name"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required=""
-            />
-            <label
-              for="floating_first_name"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              First name
-            </label>
+    <Header>
+      <div className="mt-10 flex   w-full justify-center">
+        <form className="  text-black px-10 py-4 rounded-xl">
+          <div className="w-full text-gray-200">
+            <div className="flex gap-5">
+              <div className="mb-4 flex flex-col gap-4 items-center ">
+                <span className="text-xs block font-bold ">Title:</span>
+                <input
+                  id="title"
+                  onChange={(e) => setTitle(e.target.value)}
+                  type="text"
+                  placeholder="Enter house title"
+                  className="bg-gray-200 text-black px-4 block py-3 rounded "
+                />
+              </div>
+              <div className="mb-4 flex flex-col gap-4 items-center">
+                <span className="text-xs block font-bold ">Price:</span>
+                <input
+                  id="title"
+                  type="number"
+                  onChange={(e) => setPrice(e.target.value)}
+                  placeholder="Enter house title "
+                  className="bg-gray-100 px-4 py-2 text-black block rounded "
+                />
+              </div>
+            </div>
+            <div className="flex gap-5">
+              <div className="mb-4 flex flex-col gap-4 items-center">
+                <span className="text-xs block font-bold ">Stree address:</span>
+                <input
+                  id="title"
+                  type=""
+                  onChange={(e) => setStress_address(e.target.value)}
+                  placeholder="Enter street address "
+                  className="bg-gray-100 px-4 py-2 text-black block rounded"
+                />
+              </div>
+              <div className="mb-4 flex flex-col gap-4 items-center">
+                <span className="text-xs block font-bold ">City:</span>
+                <input
+                  id="title"
+                  type="text"
+                  onChange={(e) => setCity(e.target.value)}
+                  placeholder="Enter city "
+                  className="bg-gray-100 px-4 py-2 text-black block rounded "
+                />
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <div className="mb-4 flex flex-col gap-4 items-center">
+                <span className="text-xs block font-bold ">Country:</span>
+                <input
+                  id="title"
+                  type="text"
+                  onChange={(e) => setCountry(e.target.value)}
+                  placeholder="Enter city "
+                  className="bg-gray-100 px-4 py-2 text-black block rounded "
+                />
+              </div>{" "}
+              <div className="flex gap-1 items-center">
+                <div className="px-2">
+                  <input
+                    id="file"
+                    onChange={handleFile}
+                    type="file"
+                    placeholder="Enter house title "
+                    className=" px-4 py-2 block rounded "
+                  />
+                </div>
+              </div>
+            </div>
+            {/* <div className="">
+              <img src={img} height="200" width="400" />
+            </div> */}
+            <div className="mb-4 flex flex-col gap-4 items-center ">
+              <span className="text-xs font-bold block ">Description:</span>
+              <textarea
+                id="title"
+                onChange={(e) => setDescription(e.target.value)}
+                type="text"
+                rows={6}
+                cols={10}
+                placeholder="Enter house title "
+                className="bg-gray-100 px-4 py-2 text-black  block rounded w-full"
+              />
+            </div>
+            <div className="w-full px-2">
+              <button
+                type="button"
+                className="bg-dark rounded w-full px-10 py-2 text-white"
+                onClick={addHouses}
+              >
+                Add House
+              </button>
+            </div>
           </div>
-          <div className="relative z-0 w-full mb-6 group border-2">
-            <input
-              type="text"
-              name="floating_last_name"
-              id="floating_last_name"
-              className="  block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required=""
-            />
-            <label
-              for="floating_last_name"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Last name
-            </label>
-          </div>
-        </div>
-        <div className="grid xl:grid-cols-2 xl:gap-6">
-          <div className="relative z-0 w-full mb-6 group">
-            <input
-              type="tel"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              name="floating_phone"
-              id="floating_phone"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required=""
-            />
-            <label
-              for="floating_phone"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Phone number (123-456-7890)
-            </label>
-          </div>
-          <div className="relative z-0 w-full mb-6 group">
-            <input
-              type="text"
-              name="floating_company"
-              id="floating_company"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              required=""
-            />
-            <label
-              for="floating_company"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Company (Ex. Google)
-            </label>
-          </div>
-        </div>
-        <button
-          type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+        </form>
+      </div>
+    </Header>
   );
 };
 

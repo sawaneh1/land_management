@@ -33,41 +33,30 @@ export default function DefaultNavbar() {
         <NavbarCollapse open={openNavbar}>
           <Nav>
             <div className="flex flex-col z-50 lg:flex-row lg:items-center">
-              <NavLink  
-              >
+              <NavLink>
                 <Icon name="home" size="2xl" />
-                
-                <Link to="/lands">
-                    Lands
-                  </Link>
-              </NavLink>
-              {login ? <NavLink  
-              >
-                <Icon name="login" size="2xl" />
-                
-                <Link to="/Login">
-                    Login
-                  </Link>
-              </NavLink>:<NavLink  
-              >
-                <Icon name="description" size="2xl" />
-                
-                <Link to="/register">
-                    Register
-                  </Link>
-              </NavLink> }
-              
-              
-              <NavLink  
-              >
-                <Icon name="person" size="2xl" />
-                
-                <Link to="/profile">
-                    Profile
-                  </Link>
-              </NavLink>
 
-                          
+                <Link to="/lands">Lands</Link>
+              </NavLink>
+              {login ? (
+                <NavLink>
+                  <Icon name="login" size="2xl" />
+
+                  <Link to="/Login">Login</Link>
+                </NavLink>
+              ) : (
+                <NavLink>
+                  <Icon name="description" size="2xl" />
+
+                  <Link to="/register">Register</Link>
+                </NavLink>
+              )}
+
+              <NavLink>
+                <Icon name="person" size="2xl" />
+
+                <Link to="/dashboard">Dashboard</Link>
+              </NavLink>
             </div>
           </Nav>
         </NavbarCollapse>

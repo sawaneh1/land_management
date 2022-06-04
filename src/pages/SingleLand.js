@@ -8,7 +8,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { useHistory, useParams } from "react-router-dom";
 import { Router } from "react-router-dom";
-import landData from "../components/landing/LandDetails";
+// import landData from "../components/landing/LandDetails";
 
 const SingleLand = () => {
   const route = useParams();
@@ -22,7 +22,7 @@ const SingleLand = () => {
       <main>
         {/* <Header /> */}
         <div>
-          <SinglePage landData={landData} id={route.id}/>
+          <SinglePage id={route.id} />
         </div>
 
         {/* <TeamSection /> */}

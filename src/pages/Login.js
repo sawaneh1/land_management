@@ -11,18 +11,25 @@ import DefaultNavbar from "components/DefaultNavbar";
 import SimpleFooter from "components/SimpleFooter";
 import Page from "components/login/Page";
 import Container from "components/login/Container";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [error,setError] = useState("");
-  const handleSubmit = (e) => {
+  const history = useHistory();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const handleLogin = async (e) => {
+    console.log("ghgg", e);
     e.preventDefault();
-    const loginDetails = {email, password};
-    if(email === ""|| password === ""){
-      setError("Please enter complete")
-      return}
-
+    const url = "http://localhost:5000/login";
+    const { data } = await axios.post(url, {
+      email,
+      password,
+    });
+    window.localStorage.setItem("user", JSON.stringify(data));
+    history.push("/dashboard");
+    console.log("data", data);
+    console.log("data", data);
   };
   return (
     <Page>
@@ -43,7 +50,6 @@ export default function Login() {
                 color="lightBlue"
                 placeholder="Email Address"
                 iconName="email"
-                value={email}
               />
             </div>
             <div className="mb-8 px-4">
@@ -53,7 +59,6 @@ export default function Login() {
                 color="lightBlue"
                 placeholder="Password"
                 iconName="lock"
-                value={password}
               />
             </div>
             <div className="mb-4 px-4">
@@ -67,21 +72,15 @@ export default function Login() {
                 buttonType="link"
                 size="lg"
                 ripple="dark"
-                onClick={handleSubmit}
+                onClick={handleLogin}
               >
                 Get Started
               </Button>
-              
             </div>
-            {error && (
-                <div onClick={() => setError(null)} class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
-                <span class="font-medium">Failure alert!</span> Please provide your details
-              </div>
-              )}
           </CardFooter>
         </Card>
       </Container>
-
+      <SimpleFooter />
     </Page>
   );
 }
