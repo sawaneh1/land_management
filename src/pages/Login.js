@@ -21,7 +21,7 @@ export default function Login() {
   const handleLogin = async (e) => {
     console.log("ghgg", e);
     e.preventDefault();
-    const url = "http://localhost:5000/login";
+    const url = "https://ancient-temple-33424.herokuapp.com/login";
     const { data } = await axios.post(url, {
       email,
       password,

@@ -9,7 +9,7 @@ const Contact = () => {
   const handleDelete = async (id) => {
     // const deleteHouse = houses.filter((house) => house.id == id);
     // console.log("deleted house", deleteHouse);
-    const url = `http://localhost:5000/contact/${id}`;
+    const url = `https://ancient-temple-33424.herokuapp.com/contact/${id}`;
     const data = await axios.delete(url);
     alert("payment info successfully deleted");
     window.location.reload();

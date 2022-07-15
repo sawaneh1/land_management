@@ -13,7 +13,7 @@ export default function Form() {
   const [email, setEmail] = useState("");
 
   const handleContact = async () => {
-    const url = "http://localhost:5000/contact";
+    const url = "https://ancient-temple-33424.herokuapp.com/contact";
 
     const { data } = await axios.post(url, {
       fname,

@@ -24,9 +24,9 @@ export default function Lands() {
     history.push(`land/${id}`);
   };
 
-  const path = "http://localhost:5000/";
+  const path = "https://ancient-temple-33424.herokuapp.com/";
   const fetchHouses = async () => {
-    const url = "http://localhost:5000/houses";
+    const url = "https://ancient-temple-33424.herokuapp.com/houses";
 
     const { data } = await axios.get(url);
     setHouses(data);

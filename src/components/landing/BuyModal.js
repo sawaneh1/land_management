@@ -10,7 +10,7 @@ const BuyModal = ({ houseId, amount }) => {
   const handlePayment = async (e) => {
     e.preventDefault();
 
-    const url = "http://localhost:5000/create_payment";
+    const url = "https://ancient-temple-33424.herokuapp.com/create_payment";
 
     const { data } = await axios.post(url, {
       fname,
