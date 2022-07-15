@@ -20,7 +20,7 @@ const AddProducts = () => {
   const addHouses = (e) => {
     e.preventDefault();
 
-    const url = "http://localhost:5000/create_house";
+    const url = "https://ancient-temple-33424.herokuapp.com/create_house";
 
     const formData = new FormData();
     formData.append("title", title);

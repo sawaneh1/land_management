@@ -19,10 +19,10 @@ export default function SinglePage({ id }) {
   const [house, setHouse] = useState({});
   console.log("route...", route.id);
   // const id = route.id
-  const path = "http://localhost:5000/";
+  const path = "https://ancient-temple-33424.herokuapp.com/";
 
   const fetchHouse = async () => {
-    const url = `http://localhost:5000/house/${id}`;
+    const url = `https://ancient-temple-33424.herokuapp.com/house/${id}`;
     const { data } = await axios.get(url);
     console.log("datttt", data.data.title);
     setHouse(data.data);

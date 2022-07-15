@@ -8,7 +8,7 @@ const Analytics = () => {
   const [houses, setHouses] = useState([]);
   const [amounts, setAmount] = useState([]);
   const fetchHouses = async () => {
-    const url = "http://localhost:5000/houses";
+    const url = "https://ancient-temple-33424.herokuapp.com/houses";
 
     const { data } = await axios.get(url);
     setHouses(data);

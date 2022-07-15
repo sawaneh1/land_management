@@ -20,9 +20,9 @@ const Houses = () => {
   const [city, setCity] = useState();
   const [country, setCountry] = useState();
   const [id, setId] = useState();
-  const path = "http://localhost:5000/";
+  const path = "https://ancient-temple-33424.herokuapp.com/";
   const fetchHouses = async () => {
-    const url = "http://localhost:5000/houses";
+    const url = "https://ancient-temple-33424.herokuapp.com/houses";
 
     const { data } = await axios.get(url);
     setHouses(data);
@@ -62,7 +62,7 @@ const Houses = () => {
   const handleDelete = async (id) => {
     const deleteHouse = houses.filter((house) => house.id == id);
     console.log("deleted house", deleteHouse);
-    const url = `http://localhost:5000/house/${id}`;
+    const url = `https://ancient-temple-33424.herokuapp.com/house/${id}`;
     const data = await axios.delete(url);
     alert("House  successfully deleted");
 
@@ -73,7 +73,7 @@ const Houses = () => {
   const handleUpdate = async (e, id) => {
     e.preventDefault();
     console.log("iddddddddddd", id);
-    const url = `http://localhost:5000/house/${id}`;
+    const url = `https://ancient-temple-33424.herokuapp.com/house/${id}`;
     const formData = new FormData();
     console.log("image", imagePath);
     formData.append("title", title);
