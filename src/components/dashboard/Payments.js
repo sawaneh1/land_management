@@ -41,6 +41,7 @@ const Payments = () => {
   };
   const handleDelete = async (id) => {
     setLoading(true);
+    setError(false);
 
     // const deleteHouse = houses.filter((house) => house.id == id);
     // console.log("deleted house", deleteHouse);
@@ -51,7 +52,9 @@ const Payments = () => {
 
       alert("payment info successfully deleted");
       window.location.reload();
+      setLoading(false);
     } catch (error) {
+      console.log("error", error);
       setError(true);
       setLoading(false);
     }

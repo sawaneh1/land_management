@@ -18,18 +18,31 @@ export default function Login() {
   const history = useHistory();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const handleLogin = async (e) => {
-    console.log("ghgg", e);
-    e.preventDefault();
-    const url = "https://ancient-temple-33424.herokuapp.com/login";
-    const { data } = await axios.post(url, {
-      email,
-      password,
-    });
-    window.localStorage.setItem("user", JSON.stringify(data));
-    history.push("/dashboard");
-    console.log("data", data);
-    console.log("data", data);
+    setError("");
+    setLoading(true);
+    try {
+      console.log("ghgg", e);
+      e.preventDefault();
+      const url = "https://ancient-temple-33424.herokuapp.com/login";
+      const { data } = await axios.post(url, {
+        email,
+        password,
+      });
+      window.localStorage.setItem("user", JSON.stringify(data));
+      history.push("/dashboard");
+      console.log("data", data);
+      console.log("data", data);
+    } catch (error) {
+      console.log("error", error.response.status);
+      setLoading(false);
+      if (error.response.status)
+        return setError("Email or password is invalid");
+      setError("something went wrong");
+    }
   };
   return (
     <Page>
@@ -66,6 +79,10 @@ export default function Login() {
             </div>
           </CardBody>
           <CardFooter>
+            {error && (
+              <p className="text-red-500 text-sm text-center">{error}</p>
+            )}
+
             <div className="flex justify-center bg-bb">
               <Button
                 color="lightBlue"
@@ -74,7 +91,7 @@ export default function Login() {
                 ripple="dark"
                 onClick={handleLogin}
               >
-                Get Started
+                {loading ? "Loading..." : "Login"}
               </Button>
             </div>
           </CardFooter>

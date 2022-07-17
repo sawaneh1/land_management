@@ -24,7 +24,7 @@ const Houses = () => {
   const [error, setError] = useState(false);
   const path = "https://ancient-temple-33424.herokuapp.com/";
   const fetchHouses = async () => {
-    setError(true);
+    setError(false);
     setLoading(true);
     try {
       const url = "https://ancient-temple-33424.herokuapp.com/houses";
@@ -72,9 +72,8 @@ const Houses = () => {
   };
   const handleDelete = async (id) => {
     setError(false);
+    setLoading(true);
     try {
-      setLoading(true);
-
       const deleteHouse = houses.filter((house) => house.id == id);
       console.log("deleted house", deleteHouse);
       const url = `https://ancient-temple-33424.herokuapp.com/house/${id}`;
@@ -118,6 +117,7 @@ const Houses = () => {
       window.location.reload();
       setLoading(false);
     } catch (error) {
+      console.log("error", error);
       setError(true);
       setLoading(false);
     }
