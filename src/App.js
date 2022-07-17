@@ -35,7 +35,7 @@ function App() {
       <Route exact path="/dashboard/houses" component={Houses} />
       <Route exact path="/dashboard/payments" component={Payments} />
       <Route exact path="/dashboard/contacts" component={Contact} />
-      {/* <Redirect from="*" to="/" /> */}
+      <Redirect from="*" to="/" />
     </Switch>
   );
 }
