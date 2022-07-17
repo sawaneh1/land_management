@@ -26,16 +26,33 @@ const colors = {
   red: "bg-red-500",
 };
 
-export default function LandList({ color, icon, title, children, img }) {
+export default function LandList({
+  color,
+  error,
+  loading,
+  icon,
+  title,
+  children,
+  img,
+}) {
   return (
     <div className="w-full  px-4 sm:flex  justify-center text-center  min-h-[450px]">
-      <Card>
-        <CardBody className="mt-2 cursor-pointer">
-          <img src={img} className="w-full" />
-          <H6 color="gray">{title}</H6>
-          <Paragraph color="blueGray">{children}</Paragraph>
-        </CardBody>
-      </Card>
+      <h1>hhhdshdhhd</h1>
+      {error ? (
+        <div className="text-red-500  mt-5 text-center">
+          Opps! something went wrong. check your connection and refresh the app.
+        </div>
+      ) : loading ? (
+        <div className="text-red-700  mt-5 text-center">Loading...</div>
+      ) : (
+        <Card>
+          <CardBody className="mt-2 cursor-pointer">
+            <img src={img} className="w-full" />
+            <H6 color="gray">{title}</H6>
+            <Paragraph color="blueGray">{children}</Paragraph>
+          </CardBody>
+        </Card>
+      )}
     </div>
   );
 }

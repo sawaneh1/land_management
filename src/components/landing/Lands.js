@@ -18,6 +18,8 @@ import axios from "axios";
 export default function Lands() {
   const history = useHistory();
   const [houses, setHouses] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleRoute = (id) => {
     console.log("id", id);
@@ -26,11 +28,19 @@ export default function Lands() {
 
   const path = "https://ancient-temple-33424.herokuapp.com/";
   const fetchHouses = async () => {
-    const url = "https://ancient-temple-33424.herokuapp.com/houses";
+    setError(false);
+    setLoading(true);
+    try {
+      const url = "https://ancient-temple-33424.herokuapp.com/houses";
 
-    const { data } = await axios.get(url);
-    setHouses(data);
-    console.log("data", data);
+      const { data } = await axios.get(url);
+      setHouses(data);
+      console.log("data", data);
+      setLoading(false);
+    } catch (error) {
+      setError(true);
+      setLoading(false);
+    }
   };
   useEffect(() => {
     fetchHouses();
@@ -44,6 +54,8 @@ export default function Lands() {
             <div onClick={() => handleRoute(house._id)}>
               <LandCard
                 key={house._id}
+                loading={loading}
+                error={error}
                 className="w-full cursor-pointer"
                 //   icon="stars"
                 img={`${path}${house.imagePath}`}
