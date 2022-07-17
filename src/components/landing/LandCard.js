@@ -37,7 +37,6 @@ export default function LandList({
 }) {
   return (
     <div className="w-full  px-4 sm:flex  justify-center text-center  min-h-[450px]">
-      <h1>hhhdshdhhd</h1>
       {error ? (
         <div className="text-red-500  mt-5 text-center">
           Opps! something went wrong. check your connection and refresh the app.

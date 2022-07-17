@@ -24,6 +24,7 @@ const Houses = () => {
   const [error, setError] = useState(false);
   const path = "https://ancient-temple-33424.herokuapp.com/";
   const fetchHouses = async () => {
+    setError(true);
     setLoading(true);
     try {
       const url = "https://ancient-temple-33424.herokuapp.com/houses";
@@ -134,7 +135,11 @@ const Houses = () => {
     <Header>
       <div class="container mx-auto px-4 sm:px-8">
         {error ? (
-          <div className="text-gray-200 mt-10 text-center">Loading.... </div>
+          <div className="text-gray-200 mt-10 text-center">
+            {" "}
+            Opps! something went wrong. check your connection and refresh the
+            app.{" "}
+          </div>
         ) : loading ? (
           <div className="text-gray-200 mt-10 text-center">Loading.... </div>
         ) : (
