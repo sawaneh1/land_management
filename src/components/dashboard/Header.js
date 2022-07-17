@@ -14,12 +14,12 @@ const Header = ({ children }) => {
   // console.log("user", user.data.fname);
   const history = useHistory();
 
-  useEffect(() => {
-    if (user == null) {
-      console.log("test");
-      history.push("/login");
-    }
-  }, [history, user]);
+  // useEffect(() => {
+  //   if (user == null) {
+  //     console.log("test");
+  //     history.push("/login");
+  //   }
+  // }, [history, user]);
 
   const handleLogout = () => {
     window.localStorage.clear();
