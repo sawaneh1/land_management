@@ -21,6 +21,7 @@ const Payments = () => {
       const { data } = await axios.get(url);
       setPayments(data);
       setLoading(false);
+      console.log("payments", data);
     } catch (error) {
       setError(true);
       setLoading(false);
@@ -52,8 +53,8 @@ const Payments = () => {
       console.log("data", data);
 
       alert("payment info successfully deleted");
-      window.location.reload();
       setLoading(false);
+      window.location.reload();
     } catch (error) {
       console.log("error", error);
       setError(true);
