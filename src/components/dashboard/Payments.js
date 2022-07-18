@@ -12,14 +12,15 @@ const Payments = () => {
   const [error, setError] = useState(false);
 
   const fetchPayments = async () => {
+    setLoading(true);
     setError(false);
 
     const url = "https://ancient-temple-33424.herokuapp.com/payments";
-    setLoading(true);
 
     try {
       const { data } = await axios.get(url);
       setPayments(data);
+      setLoading(false);
     } catch (error) {
       setError(true);
       setLoading(false);
